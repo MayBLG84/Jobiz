@@ -18,16 +18,13 @@ class PageController extends Controller
 
     public function home(): void
     {
-        $greeting = "Hello";
-        $name = "John";
-
         $categoryRepository = new CategoryRepository();
+
+        $category = $categoryRepository->findById(1);
 
         $categories = $categoryRepository->findAll();
 
         $this->render("page/home", [ // tableau de parametres/ associatif
-            "greetings" => $greeting,
-            "name" => $name,
             "categories" => $categories,
         ]);
     }
