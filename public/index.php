@@ -5,6 +5,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 // On définit une constante pour avoir le chemin racine de l'app
 define('APP_ROOT', dirname(__DIR__));
+define('APP_ENV', ".env.local");
 
 use App\Routing\Router;
 
@@ -19,3 +20,8 @@ $pageController->home();
 $pageController->testA(); 
 //fonction statique n'a pas besoin d'instanciation
 PageController::testB(); */
+
+use App\Db\Mysql;
+
+$mysql = Mysql::getInstance();
+$mysql->getPDO();

@@ -6,7 +6,7 @@ class ErrorController extends Controller
 {
     public function show(string $errorMessage): void
     {
-        $this->render("errors/default.php", [
+        $this->render("errors/default", [
             "errorMessage" => $errorMessage,
         ]);
     }

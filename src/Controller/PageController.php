@@ -2,6 +2,8 @@
 
 namespace App\Controller; // namespace sert pour éviter la colision de nom (ex: une classe d'un bundle x une classe que l'on a crée)
 
+use App\Repository\CategoryRepository;
+
 class PageController extends Controller
 {
     public function testA() // public on utilise pour typer les fonction que pourrons être appeler dehors sa classe
@@ -18,9 +20,15 @@ class PageController extends Controller
     {
         $greeting = "Hello";
         $name = "John";
+
+        $categoryRepository = new CategoryRepository();
+
+        $categories = $categoryRepository->findAll();
+
         $this->render("page/home", [ // tableau de parametres/ associatif
             "greetings" => $greeting,
             "name" => $name,
+            "categories" => $categories,
         ]);
     }
 
